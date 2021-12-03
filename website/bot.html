@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr" >
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Michel</title>
+	<meta name="theme-color" />
+	<meta name="description" content="" />
+	<link rel="icon" href="" />
+	<link rel="apple-touch-icon" href="" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script src="https://cdn.jsdelivr.net/gh/augustin7698/Origine@main/function.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+	<script src="research.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Mi<span>c</span>h<span>el</span></h1>
+		<div>
+			<a href="index.html">Michel</a>
+			<a target="_blank" href="https://github.com/augustin7698/michel">améliorer michel</a>
+			<a target="_blank" href="https://github.com/augustin7698/michel/issues">signaler un bug</a>
+		</div>
+	</header>
+	<main id="main-content">
+		<section>
+			<div id="message">
+				<div class="response">Ici tout tes désires deviennent réalités</div>
+			</div>
+			<input placeholder="appuye sur entrer pour envoyer ton message a Michel" id="mess" type="text" maxlength="100" onkeydown="if (event.keyCode == 13) {send(0);}">
+		</section>
+		<h3>voici les fonctions disponnible</h3>
+		<section>
+			<h4>Météo</h4>
+		</section>
+	</main>
+	<section>
+		<code></code>
+	</section>
+	<footer>
+		<a target="_blank" href="https://github.com/augustin7698">mon GitHub</a>
+		<a target="_blank" href="https://augustin.ml">mon site web</a>
+		<a target="_blank" onclick="copy('augustin#7698', 'l\'id discord a bien été copié')">mon Discord</a>
+		<a target="_blank" href="https://github.com/augustin7698/michel/pulls">signaler un bug</a>
+	</footer>
+</body>
+<script type="text/javascript">
+//Michel's research function is here////////////////////////////////////////////////////---->
+
+//research.js
+
+
+//Michel's messages function is here/////////////////////////////////////////////////////---->
+
+async function send(arg) {
+	if (arg == 0) {
+		script = document.getElementById("mess").value;
+		exe = 0;
+		if (script != "") {
+			while (script.includes("  ")) {
+				script = scripts.replace("  ", " ");
+			}
+			add("#message", "<div class=\"question\">" + script + "</div>");
+			document.getElementById("mess").value = "";
+			search(script.toLowerCase().replace("-", " ").replace("'", " "));
+		}
+	} else {
+		await wait(300);
+		add("#message", "<div class=\"response\">" + arg + "</div>");
+		document.getElementById("message").scroll(0, 100000000);
+	}
+}
+</script>
+</html>
