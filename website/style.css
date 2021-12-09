@@ -1,0 +1,345 @@
+@font-face {
+	font-family: 'futura';
+	src: url("font.otf");
+	font-style: normal;
+}
+
+body {
+	margin: 0;
+	color: #000;
+	font-family: arial;
+	overflow-x: hidden;
+}
+
+a {
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+header {
+	margin: 0;
+	display: flex;
+	justify-content: space-around;
+	height: 10vh;
+	background: #000;
+}
+
+header > h1 {
+	cursor: pointer;
+	width: 30%;
+	margin: 2.5vh;
+	font-size: 5vh;
+	font-family: futura;
+}
+
+header > h1 > span {
+	font-family: arial;
+}
+
+header > div {
+	width: 60%;
+	margin: auto 5%;
+	display: flex;
+	justify-content: space-around;
+	height: 10vh;
+}
+
+header > div > a, h1 > span, h1 {
+	margin: auto;
+	color: #fff;
+}
+
+main {
+	margin: 3% 10vw;
+}
+
+main > div {
+	display: flex;
+	justify-content: space-between;
+}
+
+main > div > h4 {
+	font-size: 20px;
+	margin: auto 0;
+	width: 50%;
+	text-align: justify;
+}
+
+main > div > h2 {
+	margin: auto 0;
+	width: 44vw;
+}
+
+main > div > img {
+	width: 30vw;
+	height: auto;
+}
+
+main > div > #img {
+	width: 25vw;
+	height: auto;
+	border-radius: 500000px;
+}
+
+
+
+main > .caroussel {
+	overflow-x: scroll;
+	width: 100vw;
+	margin: 5vh 0 5vh -10vw;
+}
+
+main > .caroussel::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	background: #FFF;
+}
+
+main >.caroussel::-webkit-scrollbar-thumb {
+	background: #FFF;
+	width: 0;
+}
+
+@keyframes caroussel1 {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-150vw); /* (nombre de div/2) * 30 * -1 */
+	}
+}
+
+main > #caroussel1 > div {
+	margin: auto 10vw;
+	animation: caroussel1 15000ms linear infinite;
+}
+
+@keyframes caroussel2 {
+	0% {
+		transform: translateX(-180vw);
+	}
+
+	100% {
+		transform: translateX(0vw); /* (nombre de div/2) * 30 * -1 */
+	}
+}
+
+main > #caroussel2 > div {
+	margin: auto 10vw;
+	animation: caroussel2 15000ms linear infinite;
+}
+
+main > .caroussel > div > img, svg {
+	width: 10vw;
+	height: 10vw;
+}
+
+main > .caroussel > div > h4 {
+	width: 10vw;
+	text-align: center;
+}
+
+main > #carousselh3 {
+	font-size: 35px;
+	text-align: center;
+	margin: 200px 0 50px 0;
+}
+
+main > h3 {
+	font-size: 35px;
+	text-align: center;
+	margin: 100px 0 50px 0;
+}
+
+footer {
+	background: #000;
+	width: 100%;
+	margin: 200px 0 0 0;
+	display: flex;
+	justify-content: space-around;
+	height: 10vh;
+}
+
+footer > a {
+	color: #fff;
+	height: 5vh;
+	margin: 2.5vh 0;
+}
+
+#main-content {
+	margin: 0;
+}
+
+main > #section {
+	width: 90vw;
+	height: 80vh;
+	margin: 5vw;
+}
+
+main > section > #message {
+	width: 100%;
+	height: 70vh;
+	margin: 0;
+	border: solid #000 2px;
+	border-radius: 10px;
+	overflow-y: scroll;
+}
+
+main > section > #message::-webkit-scrollbar {
+	width: 12px;
+	height: 8px;
+	background: #000;
+	border-radius: 0 7px 7px 0;
+}
+
+main > section > #message::-webkit-scrollbar-thumb {
+	background: #fff;
+	border: solid #000 4px;
+	width: 4px;
+	border-radius: 30px;
+}
+
+
+main > section > #message > .response, .question {
+	width: 50vw;
+	border: solid #000 2px;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+main > section > #message > .question {
+	margin: 20px 2.5vw 20px 36.5vw;
+}
+
+main > section > #message > .response{
+	margin: 20px 36.5vw 20px 2.5vw;
+	background: #000;
+	color: #FFF;
+	border: double;
+}
+
+main > section > input {
+	margin: 10px auto;
+	width: 90vw;
+	height: 35px;
+	border: solid #000 2px;
+	border-radius: 5px;
+}
+
+main > #functions {
+	display: flex;
+	flex-direction: column;
+	height: initial;
+}
+
+main > #functions > div {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 7px 0;
+}
+
+main > #functions > div > code {
+	width: 40vw;
+	cursor: pointer;
+}
+
+code {
+	font-family: consolas, "Courier New", monospace;
+	background: #000;
+	color: #FFF;
+	border: solid #000 1.5px;
+	border-radius: 4px;
+}
+
+main > #code {
+	width: 100%;
+	margin: 20px 10px;
+}
+
+main > #code > h4 {
+	width: 100%;
+}
+
+iframe {
+	width: 50vw;
+}
+
+iframe > html {
+	overflow: hidden;
+}
+
+#meteo {
+	height: 355px;
+}
+
+iframe > html > body > video {
+	width: 100vw;
+	margin: 0;
+}
+
+main > form > input {
+	width: 100%;
+	margin: 6% 0 0 0;
+	height: 35px;
+	border: solid #000 2px;
+	border-radius: 5px;
+}
+
+#update-main > h2, h3 {
+	text-align: center;
+}
+
+main > form > #submit {
+	width: 50%;
+	margin: 6% 25% 0 25%;
+	cursor: pointer;
+}
+
+#phpdiv {
+	margin-top: 5vw;
+	display: flex;
+	justify-content: space-between;
+}
+
+#phpdiv > img {
+	width: 40vw;
+	height: 34vw;
+}
+
+
+@media only screen and (max-width: 1000px) {
+	header {
+		height: 20vh;
+	}
+
+	#phpdiv {
+		display: block;
+	}
+
+	header > div {
+		height: 20vh;
+		flex-direction: column;
+	}
+
+	header > h1 {
+		margin: auto 20%;
+	}
+
+	main > div > img {
+		display: none;
+	}
+
+	main > div > h4 {
+		width: 100%;
+	}
+
+	main > div > h2 {
+		width: 100%;
+	}
+}
