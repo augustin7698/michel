@@ -28,42 +28,6 @@ function getkeyword(input, dm1, dm2, dm3, dm4, dm5, dm6) {
 }
 
 
-async function send(arg) {
-	if (arg == 0) {
-		input = document.getElementById("mess").value;
-		if (input != "") {
-			add("#message", "<div class=\"question\">" + input + "</div>");
-			document.getElementById("mess").value = "";
-			for (var i = 5 - 1; i >= 0; i--) {
-				input = input.toLowerCase()
-				input = input.replace("'", " ");
-				input = input.replace("?", "");
-				input = input.replace(",", "");
-				input = input.replace("\\", "");
-				input = input.replace("#", "");
-				input = input.replace("&", "");
-				input = input.replace("$", "");
-				input = input.replace("[", "");
-				input = input.replace("]", "");
-				input = input.replace("é", "e");
-				input = input.replace("è", "e");
-				input = input.replace("ê", "e");
-				input = input.replace("à", "a");
-				input = input.replace("â", "a");
-				input = input.replace("ô", "o");
-				input = input.replace("  ", " ");
-			}
-			console.log(input);
-			search(input);
-		}
-	} else {
-		await wait(300);
-		add("#message", "<div class=\"response\">" + arg + "</div>");
-		document.getElementById("message").scroll(0, 100000000);
-	}
-}
-
-
 function inclu(keyword) {
 	return input.includes(keyword);
 }
@@ -196,7 +160,7 @@ function wikipedia() {
 	output = getkeyword(input, 0, 0, 0, 0, 1, 0);
 	output = output.replace("wiki", "");
 	output = output.replace("pedia ", "");
-	send("Mon ami wiki m'a recommandé cela: <a target=\"_blank\" style=\"text-decoration: underline;\" href=\"https://fr.wikipedia.org/wiki/" + output + "\">" + output + "</a>.");
+	send("Wikipedia m'a recommandé cela: <a target=\"_blank\" style=\"text-decoration: underline;\" href=\"https://fr.wikipedia.org/wiki/" + output + "\">" + output + "</a>.");
 }
 
 function error() {
@@ -391,15 +355,23 @@ function call() {
 
 function calcul() {
 	result = input.match(/[0-9\*\+-\/().^ ]{1,100}/);
-	if (eval(result[0]) == undefined) {
-		input = input.replace("*", " ").replace("-", " ").replace("/", " ").replace("+", " ").replace(".", " ");
-		input = input.replace("*", " ").replace("-", " ").replace("/", " ").replace("+", " ").replace(".", " ");
-		input = input.replace("*", " ").replace("-", " ").replace("/", " ").replace("+", " ").replace(".", " ");
-		input = input.replace("*", " ").replace("-", " ").replace("/", " ").replace("+", " ").replace(".", " ");
-		search(input)
+	if (result[0].includes(0) || result[0].includes(1) || result[0].includes(2) || result[0].includes(3) || result[0].includes(4) || result[0].includes(5) || result[0].includes(6) || result[0].includes(7) || result[0].includes(8) || result[0].includes(9)) {
+		if (eval(result[0]) == undefined) {
+			send("Si vous avez essayé defaire un calcule, il a mal été formulé.")
+		} else {
+			send(eval(result[0]));
+		}
 	} else {
-		send(eval(result[0]));
+		input = input.replace("*", " ").replace("-", " ").replace("/", " ").replace("+", " ").replace(".", " ");
+		input = input.replace("*", " ").replace("-", " ").replace("/", " ").replace("+", " ").replace(".", " ");
+		input = input.replace("*", " ").replace("-", " ").replace("/", " ").replace("+", " ").replace(".", " ");
+		input = input.replace("*", " ").replace("-", " ").replace("/", " ").replace("+", " ").replace(".", " ");
+		search(input);
 	}
+}
+
+function efface() {
+	document.getElementById("message").innerHTML = "";
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -472,6 +444,9 @@ function search(input) {
 			break;
 		} if (inclu(" ou ") || inclu("carte") && (inclu(" de ") || inclu(" du "))) {
 			cartefr();
+			break;
+		} if (inclu("efface")) {
+			efface();
 			break;
 		}
 		usersearch();
